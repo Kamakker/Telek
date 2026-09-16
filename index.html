@@ -117,21 +117,21 @@
         </div>
         <div>
             <!-- A Formspree gyári, tiszta HTML küldője (Nincs szükség hozzá JavaScriptre) -->
-            <form action="https://formspree.io" method="POST">
-                <div class="form-group">
-                    <label>Az Ön neve *</label>
-                    <input type="text" name="Név" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>E-mail címe *</label>
-                    <input type="email" name="Email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>Üzenete, kérdése *</label>
-                    <textarea name="Üzenet" class="form-control" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Üzenet küldése</button>
-            </form>
+<form
+  action="https://formspree.io/f/mrpbzozo"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your file:
+    <input type="file" name="upload">
+  </label>
+  <button type="submit">Send</button>
+</form>
         </div>
     </div>
 </section>
