@@ -118,22 +118,22 @@
             <p><strong>Telefon:</strong> <a href="tel:+36303271717" style="color: var(--primary); font-weight: bold;">+36 30 327 1717</a></p>
         </div>
         <div>
-            <!-- A Formspree gyári, tiszta HTML küldője (Nincs szükség hozzá JavaScriptre) -->
-<form
-  action="https://formspree.io/f/xyezyyze"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
-</form>
+            <!-- A Formspree gyári, tiszta HTML küldője a te új egyedi kódoddal -->
+            <form action="https://formspree.io/f/xyezyyze" method="POST">
+                <div class="form-group">
+                    <label>Az Ön neve *</label>
+                    <input type="text" name="Név" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>E-mail címe *</label>
+                    <input type="email" name="Email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Üzenete, kérdése *</label>
+                    <textarea name="Üzenet" class="form-control" required placeholder="Szeretném megtekinteni az ingatlant..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Üzenet küldése</button>
+            </form>
         </div>
     </div>
 </section>
