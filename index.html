@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eladó Két Családi Ház - Iváncsán</title>
+    <title>Eladó Kettő Családi Ház - Iváncsán</title>
     <style>
         :root {
             --primary: #2c3e50;
             --accent: #e74c3c;
             --light: #f8f9fa;
             --dark: #333;
+			--h3: #BCFABF
         }
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
         body { color: var(--dark); line-height: 1.6; background-color: #fff; }
@@ -22,20 +23,24 @@
         .price-tag { background-color: var(--accent); padding: 8px 20px; border-radius: 5px; margin-top: 15px; font-weight: bold; font-size: 1.4rem; }
         section { padding: 40px 0; border-bottom: 1px solid #eee; }
         h2 { color: var(--primary); margin-bottom: 20px; position: relative; padding-bottom: 10px; }
-		h3 { color: var(--accent); margin-bottom: 20px; position: relative; padding-bottom: 10px; }
+		h3 { color: var(--primary); margin-bottom: 20px; position: relative; padding-bottom: 10px; }
         h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 50px; height: 3px; background-color: var(--accent); }
-        .gallery-container { position: relative; max-width: 800px; margin: 0 auto; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+		h3::after { content: ''; position: absolute; left: 0; bottom: 0; width: 35%; height: 3px; background-color: #119224; }
+        .gallery-container { position: relative; max-width: 1000px; margin: 0 auto; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .gallery-slides { display: none; width: 100%; }
-        .gallery-slides img { width: 100%; height: 400px; object-fit: cover; display: block; }
+        .gallery-slides img { width: 100%; height: 600px; object-fit: cover; display: block; }
         .gallery-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 10px; }
         .prev, .next { cursor: pointer; background-color: rgba(0, 0, 0, 0.6); color: white; font-weight: bold; font-size: 20px; padding: 12px 18px; border-radius: 50%; border: none; }
         .caption-container { text-align: center; background-color: rgba(0,0,0,0.8); padding: 10px; color: white; }
         .specs-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .specs-table tr:nth-child(even) { background-color: var(--light); }
-        .specs-table td { padding: 12px 15px; border-bottom: 1px solid #ddd; }
+		.specs-table1 { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .specs-table tr:nth-child(even) { background-color: #F1FDE7; }
+		.specs-table1 tr:nth-child(even) { background-color: #BEF9E2; }
+        .specs-table td { padding: 5px 15px; border-bottom: 1px solid #ddd; }
+		.specs-table1 td { padding: 5px 15px; border-bottom: 1px solid #ddd; }
         .specs-table td.label { font-weight: bold; color: var(--primary); width: 40%; }
-        .video-wrapper { max-width: 800px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        video { width: 100%; display: block; }
+        .video-wrapper { max-width: 1000px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        video { width: 100%;  padding: 20px; display: block; }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .gallery-slides img { height: 260px; } }
         .form-group { margin-bottom: 15px; }
@@ -50,7 +55,7 @@
 </head>
 <body>
     <header class="hero">
-        <h1>Két Családi Ház Eladó Iváncsán</h1>
+        <h1> Eladó Iváncsán Két Családi Ház 2700nm Telken</h1>
         <p>Csendes falusi környezet, modern technológia, hatalmas terasz</p>
         <div class="price-tag">160 Millió Ft</div>
     </header>
@@ -73,7 +78,7 @@
         <section id="adatok">
             <h2>Műszaki adatok</h2>
             <table class="specs-table">
-				<tr><td class="label">Utcafronti ház:</td><td></td></tr>
+				<tr><td class="label"><h3>Utcafronti ház:</h3></td><td></td></tr>
                 <tr><td class="label">Alapterület:</td><td>100 m²</td></tr>
                 <tr><td class="label">Szobák száma:</td><td>2</td></tr>
 				<tr><td class="label">Nappali:</td><td>1</td></tr>
@@ -88,6 +93,19 @@
 				<tr><td class="label">Melegvíz ellátás:</td><td>Kondenzációs kombi kazán + 160 L Hajdu Bojler </td></tr>
                 <tr><td class="label">Fűtésrendszer:</td><td>Kondenzációs kombi kazán</td></tr>
             </table>
+			<table class="specs-table1">
+				<tr><td class="label"><h3>Második ház:</></td><td></td></tr>
+                <tr><td class="label">Alapterület:</td><td>96 m²</td></tr>
+                <tr><td class="label">Szobák száma:</td><td>2</td></tr>
+				<tr><td class="label">Nappali amerikai konyhás:</td><td>1</td></tr>
+				<tr><td class="label">Fürdőszobák száma:</td><td>2</td></tr>
+				<tr><td class="label">Előszoba:</td><td>1</td></tr>
+				<tr><td class="label">Internet - telefon- TV:</td><td>One 1Gb optikai</td></tr>
+				<tr><td class="label">Teraszok:</td><td>1</td></tr>
+				<tr><td class="label">Inverteres klimák:</td><td>3</td></tr>
+				<tr><td class="label">Melegvíz ellátás:</td><td>160 L Hajdu Bojler </td></tr>
+                <tr><td class="label">Fűtésrendszer:</td><td>Inverteres klimák, elektromos Nobo radiátor</td></tr>
+            </table>
         </section>
         <section id="video">
             <h2>Videós bejárás</h2>
@@ -97,23 +115,24 @@
                 </video>
             </div>
         </section>
-
-		<section id="kapcsolat">
-	    <h2>Kapcsolatfelvétel</h2>
-	    <div class="contact-grid">
-	        <div class="contact-info">
-	            <p>Keressen bizalommal az alábbi elérhetőségeken!</p>
-	            <p><strong>Tulajdonos:</strong> Kovács Pál Péter</p>
-	            <p><strong>Telefon:</strong><a href="tel:+36303271717 " style="color: var(--primary); font-weight: bold;"> +36 30 327 1717</a></p>
-				<p><strong>Telefon:</strong><a href="tel:+36309644644 " style="color: var(--primary); font-weight: bold;"> +36 30 9 644 644</a></p>
-        	</div>
+        <section id="kapcsolat">
+			<h2>Kapcsolatfelvétel</h2>
+			<div class="contact-grid">
+				<div class="contact-info">
+					<p>Keressen bizalommal az alábbi elérhetőségeken!</p>
+					<p><strong>Tulajdonos:</strong> Kovács Pál Péter</p>
+					<p><strong>Telefon:</strong><a href="tel:+36303271717 " style="color: var(--primary); font-weight: bold;"> +36 30 327 1717</a></p>
+					<p><strong>Telefon:</strong><a href="tel:+36309644644 " style="color: var(--primary); font-weight: bold;"> +36 30 9 644 644</a></p>
+				</div>
         <div>
             <!-- A Formspree gyári, tiszta HTML küldője a te új egyedi kódoddal -->
             <form action="https://formspree.io/f/xyezyyze" method="POST">
                 <div class="form-group">
+					<h2>Ha szeretne üzenetet küldeni</h2>
                     <label>Az Ön neve *</label>
                     <input type="text" name="Név" class="form-control" required>
                 </div>
+
                 <div class="form-group">
                     <label>E-mail címe *</label>
                     <input type="email" name="Email" class="form-control" required>
