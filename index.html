@@ -94,7 +94,7 @@
                     <p><strong>Telefon:</strong> +36 30 327 1717</p>
                 </div>
                 <div>
-                     <form id="contactForm" action="formspree.io" method="POST">
+                                          <form id="contactForm" data-action="formspree.io/f/mrpbzozo" method="POST">
                         <div class="form-group">
                             <label>Az Ön neve *</label>
                             <input type="text" name="Név" class="form-control" required>
@@ -115,7 +115,14 @@
             </div>
         </section>
     </div>
+	
        <script>
+	   // NETLIFY BLOKKOLÁS ELLENI TRÜKK 
+	document.getElementById("contactForm").addEventListener("submit", function(e) {
+    // A küldés pillanatában gyorsan beállítjuk a valódi Formspree linket az action-be
+    this.action = this.getAttribute("data-action");
+});
+
         /* --- KÉPGALÉRIA LOGIKA --- */
         let slideIndex = 1;
         function changeSlide(n) { showSlides(slideIndex += n); }
@@ -128,6 +135,6 @@
         }
         document.addEventListener("DOMContentLoaded", function() { showSlides(slideIndex); });
     </script>
-
+	
 </body>
 </html>
