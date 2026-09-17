@@ -3,271 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eladó Kettő Családi Ház - Iváncsán</title>
-    <style>
-        :root {
-            --primary: #2c3e50;
-            --accent: #e74c3c;
-            --light: #f8f9fa;
-            --dark: #333;
-			--h3: #BCFABF
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
-        body { color: var(--dark); line-height: 1.6; background-color: #fff; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            height: 50vh; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px;
-        }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.6); }
-        .price-tag { background-color: var(--accent); padding: 8px 20px; border-radius: 5px; margin-top: 15px; font-weight: bold; font-size: 1.4rem; }
-        section { padding: 40px 0; border-bottom: 1px solid #eee; }
-        h2 { color: var(--primary); margin-bottom: 20px; position: relative; padding-bottom: 10px; }
-		h3 { color: var(--primary); margin-bottom: 20px; position: relative; padding-bottom: 10px; }
-        h2::after { content: ''; position: absolute; left: 0; bottom: 0; width: 50px; height: 3px; background-color: var(--accent); }
-		
-		h3::after { content: ''; position: absolute; left: 0; bottom: 0; width: 35%; height: 3px; background-color: #119224; }
-        .gallery-container { position: relative; max-width: 1000px; margin: 0 auto; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .gallery-slides { display: none; width: 100%; }
-        .gallery-slides img { width: 100%; height: 600px; object-fit: cover; display: block; }
-        .gallery-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 10px; }
-        .prev, .next { cursor: pointer; background-color: rgba(0, 0, 0, 0.6); color: white; font-weight: bold; font-size: 20px; padding: 12px 18px; border-radius: 50%; border: none; }
-        .caption-container { text-align: center; background-color: rgba(0,0,0,0.8); padding: 10px; color: white; }
-        .specs-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-		.specs-table1 { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .specs-table tr:nth-child(even) { background-color: #F1FDE7; }
-		.specs-table1 tr:nth-child(even) { background-color: #BEF9E2; }
-        .specs-table td { padding: 5px 15px; border-bottom: 1px solid #ddd; }
-		.specs-table1 td { padding: 5px 15px; border-bottom: 1px solid #ddd; }
-        .specs-table td.label { font-weight: bold; color: var(--primary); width: 40%; }
-        .video-wrapper { max-width: 1000px; margin: 0 auto; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        video { width: 100%;  padding: 20px; display: block; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } .gallery-slides img { height: 260px; } }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: 500; }
-        .form-control { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; }
-        textarea.form-control { resize: vertical; height: 100px; }
-        .btn-submit { background-color: #9DECB7;  color: #0C3C1C; padding: 12px 25px; border: 1px solid #0C3C1C; border-radius: 4px; cursor: pointer; font-size: 1rem; font-weight: bold; width: 100%; }
-		.btn-submit:hover { background-color: #04AA6D; color: white; }
-        .form-status { margin-top: 15px; padding: 12px; border-radius: 4px; font-weight: bold; display: none; }
-        .status-success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
-        .status-error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
-		        /* --- ÚJ LENYÍLÓ CSONK STÍLUSOK --- */
-        details {
-            background-color: var(--light);
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 15px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-        details[open] {
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        summary {
-            font-size: 1.3rem;
-            font-weight: 650;
-            color: var(--primary);
-            cursor: pointer;
-            list-style: none; /* Eltávolítja az alapértelmezett böngésző nyilat */
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            user-select: none;
-        }
-        /* Egyedi, szép és arányos lenyíló ikon készítése a jobb szélre */
-        summary::after {
-            content: '▼';
-            font-size: 1rem;
-            color: var(--accent);
-            transition: transform 0.3s ease;
-        }
-        /* Ha nyitva van, a nyíl megfordul */
-        details[open] summary::after {
-            transform: rotate(180deg);
-        }
-        /* A lenyíló szövegtörzs stílusa */
-        .details-content {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #e0e0e0;
-            animation: fadeIn 0.4s ease;
-        }
-        /* Finom áttűnési animáció a szöveg megjelenésekor */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-	 <meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<!-- Alapvető Keresőoptimalizálási (SEO) beállítások -->
-		<title>Eladó Családi Ház Iváncsán – Kétgenerációs, modern ingatlan</title>
-		<meta name="description" content="Eladó egy kiváló állapotú, kétgenerációs családi ház Iváncsán. Csendes környék, nagy telek, azonnal költözhető. Nézze meg a részleteket és a fotókat!">
-		<meta name="keywords" content="eladó ház Iváncsa, családi ház Iváncsa, ingatlan Iváncsa, kétgenerációs ház Iváncsa">
-		<meta name="robots" content="index, follow">
-		<link rel="canonical" href="https://a-te-weboldalad-cime.hu">
+    <title>Eladó Családi Ház Iváncsán – Kétgenerációs, modern ingatlan</title>
+    
+    <!-- Alapvető Keresőoptimalizálási (SEO) beállítások -->
+    <meta name="description" content="Eladó két teljesen felújított családi ház Iváncsán, hatalmas 2700 nm-es telken. Modern technológia, hőszivattyús klíma, gázkazán. Nézze meg a fotókat!">
+    <meta name="keywords" content="eladó ház Iváncsa, családi ház Iváncsa, ingatlan Iváncsa, kétgenerációs ház Iváncsa, két ház egy telken">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://a-te-weboldalad-cime.hu">
 
-		<!-- Közösségi média megjelenés (Facebook, Viber stb. megosztáshoz) -->
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="Eladó Családi Ház Iváncsán – Kétgenerációs, modern ingatlan">
-		<meta property="og:description" content="Kiváló állapotú családi ház eladó Iváncsa csendes utcájában. Nézze meg a részletes leírást!">
-		<meta property="og:image" content="https://unsplash.com">
-		<meta property="og:url" content="https://a-te-weboldalad-cime.hu">
+    <!-- STYLE -->
+    <link type="text/css" rel="stylesheet" media="all" href="css/index.css">
+    
+    <!-- JAVASCRIPTEK -->
+    <script type="text/javascript" src="js/galery.js" defer></script>
 
-		<!-- Google Strukturált Adatok (Segít, hogy a Google pontosan tudja, hogy ez egy eladó ingatlan) -->
-		<script type="application/ld+json">
-		{
-		  "@context": "https://schema.org",
-		  "@type": "SingleFamilyResidence",
-		  "name": "Kétgenerációs Családi Ház Iváncsán",
-		  "description": "Eladó családi ház Iváncsán, csendes övezetben.",
-		  "address": {
-			"@type": "PostalAddress",
-			"addressLocality": "Iváncsa",
-			"addressRegion": "Fejér",
-			"postalCode": "2454",
-			"addressCountry": "HU"
-		  },
-		  "offers": {
-			"@type": "Offer",
-			"price": "65000000",
-			"priceCurrency": "HUF",
-			"availability": "https://schema.org"
-		  }
-		}
-		</script>
-</head>
-
-<body>
-    <header class="hero">
-        <h1> Eladó Iváncsán Két Családi Ház 2700nm Telken</h1>
-        <p>Csendes falusi környezet, modern technológia, hatalmas terasz</p>
-        <div class="price-tag">160 Millió Ft</div>
-		<p>&nbsp; </p>
-		<p>A Weblap feltöltés alatt van, még nem végleges</p>
-    </header>
-    <div class="container">
-        <section id="leiras">
-            <h2>Ingatlan leírása</h2>
-            <p>Eladásra kínálunk egy bruttó 100 négyzetméteresés egy 96nm kiváló elosztású családi házat. Az ingatlanok 2025-ben teljes felújításon esetek át, modern technológiával, fali kondenzációs kombi gázkazánnal, hőszivattyús inverteres klimával és minőségi nyílászárókkal, új szigetelt  tetőzetekkel külön 1" locsoló vízbekötéssel.</p>
-        </section>
-        <section id="galeria">
-            <h2>Fotók az ingatlanról</h2>
-            <div class="gallery-container">
-                <div class="gallery-slides"><img src="nh-utcaf-j.jpg"><div class="caption-container">Utcai front</div></div>
-                <div class="gallery-slides"><img src="nh-nappali1.jpg"><div class="caption-container">Nappali</div></div>
-                <div class="gallery-nav">
-                    <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-                    <button class="next" onclick="changeSlide(1)">&#10095;</button>
-                </div>
-            </div>
-        </section>
-        <section id="adatok">
-            <h2>Műszaki adatok</h2>
-            <table class="specs-table">
-				<tr><td class="label"><h3>Utcafronti ház:</h3></td><td></td></tr>
-                <tr><td class="label">Alapterület:</td><td>100 m²</td></tr>
-                <tr><td class="label">Szobák száma:</td><td>2</td></tr>
-				<tr><td class="label">Nappali:</td><td>1</td></tr>
-				<tr><td class="label">Fürdőszobák száma:</td><td>2</td></tr>
-				<tr><td class="label">Konyha:</td><td>1</td></tr>
-				<tr><td class="label">Előszoba:</td><td>1</td></tr>
-				<tr><td class="label">Mosókonyha-gépészet:</td><td>1</td></tr>
-				<tr><td class="label">Internet - telefon- TV:</td><td>One 1Gb optikai</td></tr>
-				<tr><td class="label">Riasztó:</td><td>DSC</td></tr>
-				<tr><td class="label">Teraszok:</td><td>2</td></tr>
-				<tr><td class="label">Inverteres klimák:</td><td>2</td></tr>
-				<tr><td class="label">Melegvíz ellátás:</td><td>Kondenzációs kombi kazán + 160 L Hajdu Bojler </td></tr>
-                <tr><td class="label">Fűtésrendszer:</td><td>Kondenzációs kombi kazán</td></tr>
-            </table>
-			<table class="specs-table1">
-				<tr><td class="label"><h3>Második ház:</></td><td></td></tr>
-                <tr><td class="label">Alapterület:</td><td>96 m²</td></tr>
-                <tr><td class="label">Szobák száma:</td><td>2</td></tr>
-				<tr><td class="label">Nappali amerikai konyhás:</td><td>1</td></tr>
-				<tr><td class="label">Fürdőszobák száma:</td><td>2</td></tr>
-				<tr><td class="label">Előszoba:</td><td>1</td></tr>
-				<tr><td class="label">Internet - telefon- TV:</td><td>One 1Gb optikai</td></tr>
-				<tr><td class="label">Teraszok:</td><td>1</td></tr>
-				<tr><td class="label">Inverteres klimák:</td><td>3</td></tr>
-				<tr><td class="label">Melegvíz ellátás:</td><td>160 L Hajdu Bojler </td></tr>
-                <tr><td class="label">Fűtésrendszer:</td><td>Inverteres klimák, elektromos Nobo radiátor</td></tr>
-            </table>
-        </section>
-        <section id="video">
-            <h2>Videós bejárás</h2>
-            <div class="video-wrapper">
-                <video controls poster="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80">
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                </video>
-            </div>
-        </section>
-		
-		<section id="plusz">
-			<!-- Ide került be a lenyíló rész -->
-            <details>
-                <summary>Bővebb leírás az ingatlanról</summary>
-                <div class="details-content">
-                    <p>Ez a tartalom alapértelmezetten rejtve van, és csak akkor bukkan fel, ha a fenti sorra vagy a nyílra kattintanak. Újbóli kattintásra zökkenőmentesen bezáródik.</p>
-                    <br>
-                    <p>További részletek: szobák száma, telek mérete, fűtésrendszer típusa és minden egyéb fontos információ</p>
-                </div>
-            </details>
-		</section>
-		
-		
-        <section id="kapcsolat">
-			<h2>Kapcsolatfelvétel</h2>
-			<div class="contact-grid">
-				<div class="contact-info">
-					<p>Keressen bizalommal az alábbi elérhetőségeken!</p>
-					<p><strong>Tulajdonos:</strong> Kovács Pál Péter</p>
-					<p><strong>Telefon:</strong><a href="tel:+36303271717 " style="color: var(--primary); font-weight: bold;"> +36 30 327 1717</a></p>
-					<p><strong>Telefon:</strong><a href="tel:+36309644644 " style="color: var(--primary); font-weight: bold;"> +36 30 9 644 644</a></p>
-				</div>
-        <div>
-
-            <!-- A Formspree gyári, tiszta HTML küldője a te új egyedi kódoddal -->
-            <form action="https://formspree.io/f/xyezyyze" method="POST">
-                <div class="form-group">
-					<h2>Ha szeretne üzenetet küldeni</h2>
-                    <label>Az Ön neve *</label>
-                    <input type="text" name="Név" class="form-control" required>
-                </div>
-
-                <div class="form-group">
-                    <label>E-mail címe *</label>
-                    <input type="email" name="Email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>Üzenete, kérdése *</label>
-					<textarea name="Üzenet" class="form-control" required></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Üzenet küldése</button>
-            </form>
-        </div>
-    </div>
-</section>
-
-			
-    </div>
-	
-       <script>
-        /* --- KÉPGALÉRIA LOGIKA --- */
-        let slideIndex = 1;
-        function changeSlide(n) { showSlides(slideIndex += n); }
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("gallery-slides");
-            if (n > slides.length) { slideIndex = 1 }    
-            if (n < 1) { slideIndex = slides.length }
-            for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
-            if (slides.length > 0) { slides[slideIndex-1].style.display = "block"; }
-        }
-        document.addEventListener("DOMContentLoaded", function() { showSlides(slideIndex); });
+    <!-- Google Strukturált Adatok -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CompoundOfHousingProperties",
+      "name": "Két családi ház 2700nm telken Iváncsán",
+      "description": "Eladó két különálló családi ház Iváncsán egy hatalmas telken. Modern fűtésrendszer, hőszivattyús klímák.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Iváncsa",
+        "addressRegion": "Fejér",
+        "postalCode": "2454",
+        "addressCountry": "HU"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "160000000",
+        "priceCurrency": "HUF",
+        "availability": "https://schema.org"
+      }
+    }
     </script>
 
-</body>
+    <!-- Közösségi média megjelenés (Facebook, Viber megosztáshoz) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Eladó Családi Ház Iváncsán – Kétgenerációs, modern ingatlan">
+    <meta property="og:description" content="Eladó két felújított családi ház Iváncsán egy hatalmas, 2700 négyzetméteres telken. Tekintse meg a részleteket!">
+    <meta property="og:image" content="https://unsplash.com">
+    <meta property="og:url" content="https://a-te-weboldalad-cime.hu">
+</head>
+
+	<body>
+		<header class="hero">
+			<h1>Eladó Iváncsán Két Családi Ház 2700nm Telken</h1>
+			<p>Csendes falusi környezet, modern technológia, hatalmas terasz</p>
+			<div class="price-tag">160 Millió Ft</div>
+			<p>&nbsp;</p>
+			<p>A Weblap feltöltés alatt van, még nem végleges</p>
+		</header>
+		
+		<div class="container">
+			<section id="leiras">
+				<h2>Ingatlan rövid leírása</h2>
+				<p>Eladásra kínálunk egy bruttó 100 squares méteres és egy 96nm-es, kiváló elosztású családi házat. Az ingatlanok 2025-ben teljes felújításon estek át, modern technológiával, fali kondenzációs kombi gázkazánnal, hőszivattyús inverteres klímával és minőségi nyílászárókkal, új szigetelt tetőzetekkel külön 1" locsoló vízbekötéssel.</p>
+			</section>
+			
+			<section id="galeria">
+				<h2>Fotók az ingatlanról</h2>
+				<div class="gallery-container">
+					<div class="gallery-slides"><img src="img/nh-utcaf-j.jpg" alt="Utcai front"><div class="caption-container">Utcai front</div></div>
+					<div class="gallery-slides"><img src="img/nh-nappali1.jpg" alt="Nappali"><div class="caption-container">Nappali</div></div>
+					<div class="gallery-nav">
+						<button class="prev" onclick="changeSlide(-1)">❮</button>
+						<button class="next" onclick="changeSlide(1)">❯</button>
+					</div>
+				</div>
+			</section>
+			
+			<section id="adatok">
+				<h2>Műszaki adatok</h2>
+				<table class="specs-table">
+					<thead>
+						<tr><th colspan="2"><h3>Utcafronti ház:</h3></th></tr>
+					</thead>
+					<tbody>
+						<tr><td class="label">Alapterület:</td><td>100 m²</td></tr>
+						<tr><td class="label">Szobák száma:</td><td>2</td></tr>
+						<tr><td class="label">Nappali:</td><td>1</td></tr>
+						<tr><td class="label">Fürdőszobák száma:</td><td>2</td></tr>
+						<tr><td class="label">Konyha:</td><td>1</td></tr>
+						<tr><td class="label">Előszoba:</td><td>1</td></tr>
+						<tr><td class="label">Mosókonyha-gépészet:</td><td>1</td></tr>
+						<tr><td class="label">Internet - telefon - TV:</td><td>One 1Gb optikai</td></tr>
+						<tr><td class="label">Riasztó:</td><td>DSC</td></tr>
+						<tr><td class="label">Teraszok:</td><td>2</td></tr>
+						<tr><td class="label">Inverteres klímák:</td><td>2</td></tr>
+						<tr><td class="label">Melegvíz ellátás:</td><td>Kondenzációs kombi kazán + 160 L Hajdu Bojler</td></tr>
+						<tr><td class="label">Fűtésrendszer:</td><td>Kondenzációs kombi kazán</td></tr>
+					</tbody>
+				</table>
+				
+				<table class="specs-table1">
+					<thead>
+						<tr><th colspan="2"><h3>Második ház:</h3></th></tr>
+					</thead>
+					<tbody>
+						<tr><td class="label">Alapterület:</td><td>96 m²</td></tr>
+						<tr><td class="label">Szobák száma:</td><td>2</td></tr>
+						<tr><td class="label">Nappali amerikai konyhás:</td><td>1</td></tr>
+						<tr><td class="label">Fürdőszobák száma:</td><td>2</td></tr>
+						<tr><td class="label">Előszoba:</td><td>1</td></tr>
+						<tr><td class="label">Internet - telefon - TV:</td><td>One 1Gb optikai</td></tr>
+						<tr><td class="label">Teraszok:</td><td>1</td></tr>
+						<tr><td class="label">Inverteres klímák:</td><td>3</td></tr>
+						<tr><td class="label">Melegvíz ellátás:</td><td>160 L Hajdu Bojler</td></tr>
+						<tr><td class="label">Fűtésrendszer:</td><td>Inverteres klímák, elektromos Nobo radiátor</td></tr>
+					</tbody>
+				</table>
+			</section>
+			
+			<section id="video">
+				<h2>Videós bejárás</h2>
+				<div class="video-wrapper">
+					<video controls poster="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80">
+						<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+					</video>
+				</div>
+			</section>
+			
+			<section id="plusz">
+				<details>
+					<summary>Bővebb leírás az ingatlanról</summary>
+					<div class="details-content">
+						<p>Ez a tartalom alapértelmezetten rejtve van, és csak akkor bukkan fel, ha a fenti sorra vagy a nyílra kattintanak. Újbóli kattintásra zökkenőmentesen bezáródik.</p>
+						<br>
+						<p>További részletek: szobák száma, telek mérete, fűtésrendszer típusa és minden egyéb fontos információ.</p>
+					</div>
+				</details>
+			</section>
+			
+			<section id="kapcsolat">
+				<h2>Kapcsolatfelvétel</h2>
+
+				<div class="contact-grid">
+					<!-- BAL OLDAL: Csak a tiszta adatok -->
+					<div>
+						<p>Keressen bizalommal az alábbi elérhetőségeken!</p>
+						<p><strong>Tulajdonos:</strong> Kovács Pál Péter</p>
+						<p><strong>Telefon:</strong><a href="tel:+36303271717 " style="color: var(--primary); font-weight: bold;"> +36 30 327 1717</a></p>
+						<p><strong>Telefon:</strong><a href="tel:+36309644644 " style="color: var(--primary); font-weight: bold;"> +36 30 9 644 644</a></p>
+					</div>
+					
+					<!-- JOBB OLDAL -->
+					<div>
+						<!-- JAVÍTÁS: bekerült az id="contactForm" -->
+						<form action="https://formspree.io/f/xyezyyze" method="POST" id="contactForm">
+					
+							<div class="form-group">
+								<h2>Ha szeretne üzenetet küldeni</h2>
+								<label>Az Ön neve *</label>
+								<input type="text" name="Név" class="form-control" required>
+							</div>	
+
+							<div class="form-group">
+								<label>E-mail címe *</label>
+								<input type="email" name="Email" class="form-control" required>
+							</div>
+							
+							<div class="form-group">
+								<label>Üzenete, kérdése *</label>
+								<textarea name="Üzenet" class="form-control" required></textarea>
+							</div>
+							
+							<button type="submit" class="btn-submit">Üzenet küldése</button>
+							<div id="formStatus" class="form-status"></div>
+						</form>
+					</div>			
+				</div>
+			</section>		
+		</div>
+
+			<!-- AJAX küldő és törlő script -->
+		<script type="text/javascript" src="js/kuld.js" defer></script>
+	</body>
 </html>
